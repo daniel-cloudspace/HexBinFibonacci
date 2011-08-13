@@ -3,11 +3,14 @@
 def fib(n)
   a,b = 0,1
   n.times do
-    printf("%d\n", a)
     a,b = b,a+b
   end
+  b
 end
 
-puts fib(9).to_s(2).rjust(90, '0')
+(0..100).each do |n|
+    m = fib(n)
+    puts m.to_s(2).rjust(90, '0')
+end
 
 
