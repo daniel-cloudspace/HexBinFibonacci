@@ -8,9 +8,9 @@ def fib(n)
   b
 end
 
-(0..100).each do |n|
+(0..120).each do |n|
     m = fib(n)
-    puts m.to_s(2).rjust(90, '0')
+    puts m.to_s(2).rjust(90, '0').gsub('1', '.').gsub('0',' ')
 end
 
 
