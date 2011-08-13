@@ -8,9 +8,17 @@ def fib(n)
   b
 end
 
-(0..120).each do |n|
+binaries = []
+
+(0..200).each do |n|
     m = fib(n)
-    puts m.to_s(2).rjust(90, '0').gsub('1', '.').gsub('0',' ')
+    binaries.push m.to_s(2).rjust(100, '0').split('')
 end
 
+verticals = []
 
+binaries.each do |t|
+    verticals.push t[80]
+end
+
+puts verticals.to_s.gsub(/^0*/,'')
