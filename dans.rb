@@ -8,17 +8,18 @@ def fib(n)
   b
 end
 
-binaries = []
-
-(0..200).each do |n|
-    m = fib(n)
-    binaries.push m.to_s(2).rjust(100, '0').split('')
+def generate_huge_list(n)
+    (0..n).collect do |n|
+        m = fib(n)
+        m.to_s(2).rjust(100, '0').split('')
+    end
 end
 
-verticals = []
-
-binaries.each do |t|
-    verticals.push t[80]
+def get_column(list, n)
+    list.collect { |t|t[n] }
 end
 
-puts verticals.to_s.gsub(/^0*/,'')
+list = generate_huge_list(200)
+column = get_column(list, 89)
+
+puts column.to_s.gsub(/^0*/,'')
